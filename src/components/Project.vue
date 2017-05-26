@@ -1,0 +1,80 @@
+<template>
+  <md-card md-primary
+           md-with-hover>
+    <md-card-header>
+      <md-card-header-text>
+        <div class="md-title">Project</div>
+        <div class="md-subhead">Define your project details</div>
+      </md-card-header-text>
+    </md-card-header>
+  
+    <md-card-content>
+      <md-input-container>
+        <label>Name</label>
+        <md-input id="name"
+                  v-model="name"></md-input>
+      </md-input-container>
+  
+      <md-input-container>
+        <label>Type</label>
+        <md-input id="type"
+                  v-model="type"></md-input>
+      </md-input-container>
+  
+      <md-input-container>
+        <div v-for="env in environments">
+          <md-checkbox :id="'env_' + env.id"
+                       :value="env.value"
+                       v-model="item.env"></md-checkbox>
+          <label>{{ env.label }}</label>
+      </md-input-container>
+  
+      <md-input-container>
+        <label>Description</label>
+        <md-textarea id="description"
+                     v-model="description"></md-input>
+      </md-input-container>
+    </md-card-content>
+  
+    <md-card-actions>
+      <md-button>Save</md-button>
+      <md-button>Clear</md-button>
+    </md-card-actions>
+  </md-card>
+</template>
+
+<script>
+export default {
+  name: 'project',
+  data: function () {
+    return {
+      name: '',
+      type: '',
+      description: '',
+      environments: [
+        {
+          id: 'dev',
+          value: 'dev',
+          label: 'development'
+        },
+        {
+          id: 'test',
+          value: 'test',
+          label: 'testing'
+        },
+        {
+          id: 'stage',
+          label: 'staging',
+          value: 'stage'
+        }
+      ]
+    }
+  },
+  methods: {
+  }
+}
+</script>
+
+<style>
+
+</style>

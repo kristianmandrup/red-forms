@@ -1,0 +1,86 @@
+<template>
+  <md-card md-primary
+           md-with-hover>
+    <md-card-header>
+      <md-card-header-text>
+        <div class="md-title">User</div>
+        <div class="md-subhead">Define your user details</div>
+      </md-card-header-text>
+    </md-card-header>
+  
+    <md-card-content>
+      <md-input-container>
+        <label>Name</label>
+        <md-input id="name"
+                  v-model="name"></md-input>
+      </md-input-container>
+  
+      <md-input-container>
+        <label for="role">Role</label>
+        <!--
+            <md-select id="role"
+                       v-model="role"
+                       v-for="role in roles">
+  
+              <md-option :value="role.value">{{ role.label }}</md-option>
+            </md-select>
+            -->
+      </md-input-container>
+  
+      <md-input-container>
+        <label>Description</label>
+        <md-textarea id="description"
+                     v-model="description"></md-textarea>
+      </md-input-container>
+    </md-card-content>
+  
+    <md-card-actions>
+      <md-button>Save</md-button>
+      <md-button>Clear</md-button>
+    </md-card-actions>
+  </md-card>
+</template>
+
+<script>
+export default {
+  name: 'project',
+  data: function () {
+    return {
+      name: '',
+      type: '',
+      description: '',
+      role: '',
+      roles: [{
+        label: 'admin',
+        value: 'admin'
+      }],
+      environments: [
+        {
+          id: 'dev',
+          value: 'dev',
+          label: 'development'
+        },
+        {
+          id: 'test',
+          value: 'test',
+          label: 'testing'
+        },
+        {
+          id: 'stage',
+          label: 'staging',
+          value: 'stage'
+        }
+      ]
+    }
+  },
+  methods: {
+    save() {
+      console.log('save')
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
