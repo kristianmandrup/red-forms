@@ -4,8 +4,10 @@
 <script>
 export default {
   name: 'home',
-  ready: function () {
-    console.log('Home component ready')
+  mounted: function () {
+    this.$nextTick(function () {
+      console.log('Simple component ready')
+    })
   },
   route: {
     activate() {
