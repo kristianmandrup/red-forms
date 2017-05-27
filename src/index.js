@@ -2,6 +2,14 @@ import Vue from 'vue'
 import 'vue-material/dist/vue-material.css'
 import VueMaterial from 'vue-material'
 import VueRouter from 'vue-router'
+import VueFetch from 'vue-fetch'
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource);
+Vue.use(VueFetch, {
+  // load promise polyfill
+  // polyfill: true
+});
 Vue.use(VueMaterial)
 Vue.use(VueRouter)
 import {

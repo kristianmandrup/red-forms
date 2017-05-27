@@ -47,6 +47,9 @@
 </template>
 
 <script>
+// service
+import { $project } from '../services'
+
 export default {
   name: 'project',
   data: function () {
@@ -77,6 +80,28 @@ export default {
     }
   },
   methods: {
+    $data() {
+      return {
+        name,
+        type,
+        description,
+        environments: $environments
+      } = this
+    },
+
+    $environments() {
+      return this.environments.map((acc, env) => {
+        if (env.checked) {
+          acc[env.id] = env.value
+        }
+        return acc
+      }, {})
+    },
+
+    // call service to create project
+    save() {
+      $project.createOrUpdate(this.$data)
+    }
   }
 }
 </script>

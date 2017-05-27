@@ -18,6 +18,19 @@ See:
 Consider instead using [vue-component-router](https://www.npmjs.com/package/vue-component-router) where
 each component can have it's own router!!
 
+## Services
+
+Been experimenting with:
+
+- [vue-fetch](https://github.com/kristianmandrup/vue-fetch#outside-component)
+- [vue-resource](https://github.com/pagekit/vue-resource/issues/612)
+
+Maybe better with:
+
+- [vue-services](https://www.npmjs.com/package/vue-services)
+
+See [example](https://medium.com/codingthesmartway-com-blog/vue-js-2-vue-resource-real-world-vue-application-with-external-api-access-c3de83f25c00)
+
 ## Commands
 
 You can replace `yarn` with `npm run` here.
