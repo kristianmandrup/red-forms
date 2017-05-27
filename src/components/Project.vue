@@ -21,14 +21,16 @@
                   v-model="type"></md-input>
       </md-input-container>
   
-      <md-input-container>
-        <div v-for="env in environments">
+      <div class="input-container">
+        <label for="environments"
+               class="inputs">Environments</label>
+        <div id="environments"
+             v-for="env in environments">
           <md-checkbox :id="env.id"
                        :value="env.value"
-                       v-model="env.checked"></md-checkbox>
-          <label>{{ env.label }}</label>
+                       v-model="env.checked">{{ env.label }}</md-checkbox>
         </div>
-      </md-input-container>
+      </div>
   
       <md-input-container>
         <label>Description</label>
@@ -80,5 +82,7 @@ export default {
 </script>
 
 <style>
-
+.input-container label.inputs {
+  font-size: 1.2em !important;
+}
 </style>

@@ -15,6 +15,9 @@ See:
 - [blog post](https://medium.com/@softwarecf/getting-started-with-vue-router-37cd7d783245)
 - [Egghead tuturial](https://egghead.io/lessons/vue-get-up-and-running-with-vue-router)
 
+Consider instead using [vue-component-router](https://www.npmjs.com/package/vue-component-router) where
+each component can have it's own router!!
+
 ## Commands
 
 You can replace `yarn` with `npm run` here.

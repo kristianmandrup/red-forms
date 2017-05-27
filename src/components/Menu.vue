@@ -15,3 +15,9 @@
     </md-menu-content>
   </md-menu>
 </template>
+<script>
+export default {
+  name: 'menu',
+}
+</script>
+
