@@ -1,30 +1,10 @@
 <template>
   <div id="app">
-    <md-menu>
-      <md-button md-menu-trigger>Default</md-button>
-  
-      <md-menu-content>
-        <md-menu-item>
-          <router-link to="/user">User</router-link>
-        </md-menu-item>
-        <md-menu-item>
-          <router-link to="/project">Project</router-link>
-        </md-menu-item>
-        <md-menu-item>
-          <router-link to="/environment">Environment</router-link>
-        </md-menu-item>
-      </md-menu-content>
-    </md-menu>
-  
-    <md-card>
-      <md-card-header>
-        <div class="md-title">Node red for docker-gen</div>
-        <div class="md-subhead">Building apps the smart way</div>
-      </md-card-header>
-      <md-card-content>
-        <router-view></router-view>
-      </md-card-content>
-    </md-card>
+    <div class="content">
+      Content here
+      <router-link :to="{ name: 'user'}">User</router-link>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 

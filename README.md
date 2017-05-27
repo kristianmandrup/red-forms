@@ -8,6 +8,13 @@
 - [vue material design framework](https://medium.com/tldr-tech/vue-material-the-vue-material-design-framework-6e6ad857d0c6)
 - [Using Material Design with Vue.js 2](https://medium.com/codingthesmartway-com-blog/using-material-design-with-vue-js-2-a938eac53112)
 
+## Vue Router
+
+See:
+- [tutorial](https://www.youtube.com/watch?v=X-cs3UfqfYA)
+- [blog post](https://medium.com/@softwarecf/getting-started-with-vue-router-37cd7d783245)
+
+
 ## Commands
 
 You can replace `yarn` with `npm run` here.

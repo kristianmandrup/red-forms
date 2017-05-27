@@ -17,14 +17,12 @@
   
       <md-input-container>
         <label for="role">Role</label>
-        <!--
-            <md-select id="role"
-                       v-model="role"
-                       v-for="role in roles">
-  
-              <md-option :value="role.value">{{ role.label }}</md-option>
-            </md-select>
-            -->
+        <md-select id="role"
+                   v-model="role">
+          <md-option v-for="role in roles"
+                     :key="role.id"
+                     :value="role.value">{{ role.label }}</md-option>
+        </md-select>
       </md-input-container>
   
       <md-input-container>
@@ -43,7 +41,7 @@
 
 <script>
 export default {
-  name: 'project',
+  name: 'user',
   data: function () {
     return {
       name: '',
@@ -51,6 +49,7 @@ export default {
       description: '',
       role: '',
       roles: [{
+        id: 'admin',
         label: 'admin',
         value: 'admin'
       }],

@@ -18,27 +18,29 @@
       <md-input-container>
         <label for="type">Type</label>
         <md-select id="type"
-                   v-model="type"
-                   v-for="typ in types">
+                   v-model="type">
   
-          <md-option :value="typ.value">{{ typ.label }}</md-option>
+          <md-option v-for="typ in types"
+                     :key="typ.id"
+                     :value="typ.value">{{ typ.label }}</md-option>
         </md-select>
       </md-input-container>
   
       <md-input-container>
         <label for="branch">Branch</label>
         <md-select id="branch"
-                   v-model="branch"
-                   v-for="branch in branches">
+                   v-model="branch">
   
-          <md-option :value="branch.value">{{ branch.label }}</md-option>
+          <md-option v-for="branch in branches"
+                     :key="branch.id"
+                     :value="branch.value">{{ branch.label }}</md-option>
         </md-select>
       </md-input-container>
   
       <md-input-container>
         <label>Description</label>
         <md-textarea id="description"
-                     v-model="description"></md-input>
+                     v-model="description"></md-textarea>
       </md-input-container>
     </md-card-content>
   

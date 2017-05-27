@@ -23,16 +23,17 @@
   
       <md-input-container>
         <div v-for="env in environments">
-          <md-checkbox :id="'env_' + env.id"
+          <md-checkbox :id="env.id"
                        :value="env.value"
-                       v-model="item.env"></md-checkbox>
+                       v-model="env.checked"></md-checkbox>
           <label>{{ env.label }}</label>
+        </div>
       </md-input-container>
   
       <md-input-container>
         <label>Description</label>
         <md-textarea id="description"
-                     v-model="description"></md-input>
+                     v-model="description"></md-textarea>
       </md-input-container>
     </md-card-content>
   
@@ -55,17 +56,20 @@ export default {
         {
           id: 'dev',
           value: 'dev',
-          label: 'development'
+          label: 'development',
+          checked: true
         },
         {
           id: 'test',
           value: 'test',
-          label: 'testing'
+          label: 'testing',
+          checked: false
         },
         {
           id: 'stage',
           label: 'staging',
-          value: 'stage'
+          value: 'stage',
+          checked: true
         }
       ]
     }
