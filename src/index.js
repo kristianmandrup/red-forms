@@ -23,6 +23,7 @@ router.beforeEach((to, from, next) => {
     to,
     from
   })
+  next()
 })
 
 const app = new Vue({
