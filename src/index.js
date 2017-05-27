@@ -1,39 +1,13 @@
 import Vue from 'vue'
-import App from './components/App.vue'
 import 'vue-material/dist/vue-material.css'
 import VueMaterial from 'vue-material'
 import VueRouter from 'vue-router'
 Vue.use(VueMaterial)
 Vue.use(VueRouter)
-
 import {
-  Home,
-  User,
-  Project,
-  Environment
+  App
 } from './components'
-
-const routes = [{
-    path: '/',
-    name: 'root',
-    component: Home
-  },
-  {
-    path: '/user',
-    name: 'user',
-    component: User
-  },
-  {
-    path: '/project',
-    name: 'project',
-    component: Project
-  },
-  {
-    path: '/environment',
-    name: 'environment',
-    component: Environment
-  },
-]
+import routes from './routes'
 
 const router = new VueRouter({
   routes,
