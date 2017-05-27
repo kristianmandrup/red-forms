@@ -76,6 +76,16 @@ export default {
     save() {
       console.log('save')
     }
+  },
+  ready: function () {
+    console.log('User component ready')
+  },
+  route: {
+    activate() {
+      this.$nextTick(function () {
+        console.log('Activated User component for route')
+      })
+    }
   }
 }
 </script>

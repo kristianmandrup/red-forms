@@ -9,6 +9,10 @@ import {
 } from './components'
 import routes from './routes'
 
+console.log({
+  routes
+})
+
 const router = new VueRouter({
   routes,
   mode: 'history'

@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <div class="content">
-      Content here
+    <nav id="menu">
       <router-link :to="{ name: 'user'}">User</router-link>
+      <router-link to="/project">Project</router-link>
+    </nav>
+    <section id="content">
+      Router content here
       <router-view></router-view>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -13,16 +16,12 @@ export default {
   name: 'app',
   data: function () {
     return {
-      contacts: []
     }
   },
   methods: {
   }
 }
 </script>
-<!-- CSS libraries -->
-<style src="normalize.css/normalize.css"></style>
-
 <!-- Global CSS -->
 <style>
 

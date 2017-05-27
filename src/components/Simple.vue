@@ -1,16 +1,16 @@
 <template>
-  <h1>Baby I'm HOME...</h1>
+  <h1>Simply...</h1>
 </template>
 <script>
 export default {
-  name: 'home',
+  name: 'simple',
   ready: function () {
-    console.log('Home component ready')
+    console.log('Simple component ready')
   },
   route: {
     activate() {
       this.$nextTick(function () {
-        console.log('Activated Home component for route')
+        console.log('Activated Simple component for route')
       })
     }
   }

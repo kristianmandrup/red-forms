@@ -13,7 +13,7 @@
 See:
 - [tutorial](https://www.youtube.com/watch?v=X-cs3UfqfYA)
 - [blog post](https://medium.com/@softwarecf/getting-started-with-vue-router-37cd7d783245)
-
+- [Egghead tuturial](https://egghead.io/lessons/vue-get-up-and-running-with-vue-router)
 
 ## Commands
 

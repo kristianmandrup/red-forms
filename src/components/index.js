@@ -1,20 +1,20 @@
 export {
   default as App
 }
-from './App'
+from './App.vue'
 export {
   default as Home
 }
-from './Home'
+from './Home.vue'
 export {
   default as User
 }
-from './User'
+from './User.vue'
 export {
   default as Project
 }
-from './Project'
+from './Project.vue'
 export {
   default as Environment
 }
-from './Environment'
+from './Environment.vue'
