@@ -40,14 +40,14 @@ test('create environment', async t => {
 
   // what to POST via "fetch"
   let data = {
-    name: 'my-project'
+    name: 'my-env'
   }
 
   // fake response on any POST for simplicity
   fetchMock.post('*', response)
 
   const {
-    $project
+    $environment
   } = configure({
     // logging: true,
     // fetch,
@@ -55,7 +55,7 @@ test('create environment', async t => {
     createHeaders
   })
 
-  let request = $project.create
+  let request = $environment.create
 
   t.is(typeof request, 'function')
 

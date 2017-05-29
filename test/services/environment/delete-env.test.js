@@ -27,7 +27,7 @@ test.afterEach(done => {
   fetchMock.restore();
 })
 
-test('create environment', async t => {
+test('delete environment', async t => {
   // expected result
   let result = {
     type: 'Env',
@@ -39,13 +39,13 @@ test('create environment', async t => {
   }
 
   // what to delete via "fetch"
-  let name = 'my-project'
+  let name = name: 'my-env'
 
   // fake response on any DELETE for simplicity
   fetchMock.delete('*', response)
 
   const {
-    $project
+    $environment
   } = configure({
     // logging: true,
     // fetch,
@@ -53,7 +53,7 @@ test('create environment', async t => {
     createHeaders
   })
 
-  let request = $project.deleteByName
+  let request = $environment.deleteByName
 
   t.is(typeof request, 'function')
 
