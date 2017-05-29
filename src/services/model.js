@@ -16,7 +16,7 @@ export function model(opts = {}) {
 
   const $ = Fetch(opts)
 
-  host = host || 'localhost:8080'
+  host = host || 'https://localhost:8080'
   let url = `${host}/${opts.name}`
 
   const findAll = async function (id) {

@@ -8,10 +8,8 @@ export const doRequest = async function (name, request, opts = {}) {
   log(name)
   try {
     let result = await request()
-    if (res.status === 200) {
-      return {
-        result
-      }
+    if (result.status === 200) {
+      return result
     }
   } catch (error) {
     return {
