@@ -18,3 +18,7 @@ export {
   default as Environment
 }
 from './Environment.vue'
+export {
+  default as Organisation
+}
+from './Organisation.vue'

@@ -40,8 +40,8 @@
     </md-card-content>
   
     <md-card-actions>
-      <md-button>Save</md-button>
-      <md-button>Clear</md-button>
+      <md-button @click="save()">Save</md-button>
+      <md-button @click="clear()">Clear</md-button>
     </md-card-actions>
   </md-card>
 </template>
@@ -88,7 +88,7 @@ export default {
         name,
         type,
         description,
-        environments: $environments
+        environments: $environments()
       } = this
     },
 
@@ -100,10 +100,12 @@ export default {
         return acc
       }, {})
     },
-
+    clear() {
+      console.log('clear')
+    },
     // call service to create project
     save() {
-      services.$project.createOrUpdate(this.$data)
+      services.$project.createOrUpdate(this.$data())
     }
   }
 }

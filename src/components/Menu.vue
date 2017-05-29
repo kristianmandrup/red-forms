@@ -1,17 +1,16 @@
 <template>
   <md-menu>
-    <md-button md-menu-trigger>Default</md-button>
-  
+    <md-button md-menu-trigger>Manage</md-button>
     <md-menu-content>
       <md-menu-item>
-        <router-link :to="{ name: 'user'}">User</router-link>
+        <md-button @click.native="$router.push({ name: 'user'})">User</md-button>
+        </md-button>
       </md-menu-item>
       <md-menu-item>
-        <router-link :to="{ name: 'project'}">Project</router-link>
+        <md-button @click.native="$router.push({ name: 'project'})">Project</md-button>
+        </md-button>
       </md-menu-item>
-      <md-menu-item>
-        <router-link :to="{ name: 'environment'}">Environment</router-link>
-      </md-menu-item>
+      <md-menu-item @selected="$router.push({ name: 'environment'})">Environment</md-menu-item>
     </md-menu-content>
   </md-menu>
 </template>
