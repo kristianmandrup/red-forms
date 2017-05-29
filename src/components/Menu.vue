@@ -4,6 +4,7 @@
     <md-menu-content>
       <md-menu-item @selected="$router.push({ name: 'organisation'})">Organisation</md-menu-item>
       <md-menu-item @selected="$router.push({ name: 'user'})">User</md-menu-item>
+      <md-menu-item @selected="$router.push({ name: 'repo'})">Repo</md-menu-item>
       <md-menu-item @selected="$router.push({ name: 'project'})">Project</md-menu-item>
       <md-menu-item @selected="$router.push({ name: 'environment'})">Environment</md-menu-item>
     </md-menu-content>

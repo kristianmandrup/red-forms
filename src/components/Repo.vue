@@ -101,8 +101,8 @@ export default {
     }
   },
   methods: {
-    $data() {
-      this.branches = this.$branches()
+    formData() {
+      this.branches = this.selectedBranches()
       return {
         name,
         location,
@@ -111,7 +111,7 @@ export default {
       } = this
     },
 
-    $branches() {
+    selectedBranches() {
       return this.form.branches.map((acc, env) => {
         if (env.checked) {
           acc[env.id] = env.value
@@ -121,8 +121,8 @@ export default {
     },
 
     // call service to create organisation
-    save() {
-      services.$environment.createOrUpdate(this.$data())
+    async save() {
+      await services.$environment.createOrUpdate(this.formData())
     }
   }
 }

@@ -55,15 +55,15 @@ export default {
     }
   },
   methods: {
-    $data() {
+    formData() {
       return {
         name,
         role,
         description
       } = this
     },
-    save() {
-      services.$user.createOrUpdate(this.$data())
+    async save() {
+      await services.$user.createOrUpdate(this.formData())
     }
   }
 }

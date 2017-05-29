@@ -15,9 +15,9 @@ import {
 } from './components'
 import routes from './routes'
 
-console.log({
-  routes
-})
+// console.log({
+//   routes
+// })
 
 const router = new VueRouter({
   routes,
@@ -25,10 +25,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log('router', {
-    to,
-    from
-  })
+  // console.log('router', {
+  //   to,
+  //   from
+  // })
   next()
 })
 

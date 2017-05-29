@@ -49,7 +49,7 @@ export default {
     }
   },
   methods: {
-    $data() {
+    formData() {
       return {
         name,
         description
@@ -57,8 +57,8 @@ export default {
     },
 
     // call service to create organisation
-    save() {
-      services.$organisation.createOrUpdate(this.$data())
+    async save() {
+      await services.$organisation.createOrUpdate(this.formData())
     }
   }
 }

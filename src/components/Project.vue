@@ -93,8 +93,8 @@ export default {
     }
   },
   methods: {
-    $data() {
-      this.environments = this.$environments()
+    formData() {
+      this.environments = this.selectedBranches()
       return {
         name,
         type,
@@ -103,7 +103,7 @@ export default {
       } = this
     },
 
-    $environments() {
+    selectedBranches() {
       return this.form.environments.map((acc, env) => {
         if (env.checked) {
           acc[env.id] = env.value
@@ -116,7 +116,7 @@ export default {
     },
     // call service to create project
     async save() {
-      await services.$project.createOrUpdate(this.$data())
+      await services.$project.createOrUpdate(this.formData())
     }
   }
 }

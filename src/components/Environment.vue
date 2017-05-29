@@ -82,7 +82,7 @@ export default {
     }
   },
   methods: {
-    $data() {
+    formData() {
       return {
         name,
         branch,
@@ -92,8 +92,8 @@ export default {
     },
 
     // call service to create organisation
-    save() {
-      services.$environment.createOrUpdate(this.$data())
+    async save() {
+      await services.$environment.createOrUpdate(this.formData())
     }
   }
 }
