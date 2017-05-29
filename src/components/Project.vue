@@ -25,7 +25,7 @@
         <label for="environments"
                class="inputs">Environments</label>
         <div id="environments"
-             v-for="env in environments">
+             v-for="env in form.environments">
           <md-checkbox :id="env.id"
                        :value="env.value"
                        v-model="env.checked">{{ env.label }}</md-checkbox>
@@ -38,7 +38,7 @@
                      v-model="description"></md-textarea>
       </md-input-container>
       <user-invite entity="project"
-                   id="{{ id}}" />
+                   :id="id" />
     </md-card-content>
   
     <md-card-actions>
@@ -68,40 +68,43 @@ export default {
       name: '',
       type: '',
       description: '',
-      environments: [
-        {
-          id: 'dev',
-          value: 'dev',
-          label: 'development',
-          checked: true
-        },
-        {
-          id: 'test',
-          value: 'test',
-          label: 'testing',
-          checked: false
-        },
-        {
-          id: 'stage',
-          label: 'staging',
-          value: 'stage',
-          checked: true
-        }
-      ]
+      form: {
+        environments: [
+          {
+            id: 'dev',
+            value: 'dev',
+            label: 'development',
+            checked: true
+          },
+          {
+            id: 'test',
+            value: 'test',
+            label: 'testing',
+            checked: false
+          },
+          {
+            id: 'stage',
+            label: 'staging',
+            value: 'stage',
+            checked: true
+          }
+        ]
+      }
     }
   },
   methods: {
     $data() {
+      this.environments = this.$environments()
       return {
         name,
         type,
         description,
-        environments: $environments()
+        environments
       } = this
     },
 
     $environments() {
-      return this.environments.map((acc, env) => {
+      return this.form.environments.map((acc, env) => {
         if (env.checked) {
           acc[env.id] = env.value
         }
@@ -112,8 +115,8 @@ export default {
       console.log('clear')
     },
     // call service to create project
-    save() {
-      services.$project.createOrUpdate(this.$data())
+    async save() {
+      await services.$project.createOrUpdate(this.$data())
     }
   }
 }

@@ -57,7 +57,7 @@ export default {
     }
   },
   methods: {
-    save() {
+    async save() {
       let users = this.users.split(',').map(usr => usr.trim())
       console.log('save')
       let serviceName = `$${entity}`
