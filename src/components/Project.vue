@@ -48,7 +48,10 @@
 
 <script>
 // service
-import { $project } from '../services'
+import { configure } from '../services'
+const services = configure({
+  // host:
+})
 
 export default {
   name: 'project',
@@ -100,7 +103,7 @@ export default {
 
     // call service to create project
     save() {
-      $project.createOrUpdate(this.$data)
+      services.$project.createOrUpdate(this.$data)
     }
   }
 }

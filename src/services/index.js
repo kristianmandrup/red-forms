@@ -1,9 +1,17 @@
-import $project from './project'
-import $environment from './environment'
-import $user from './user'
+import {
+  project
+} from './project'
+import {
+  user
+} from './user'
+import {
+  environment
+} from './environment'
 
-export default {
-  $project,
-  $environment,
-  $user
+export function configure(opts) {
+  return {
+    $project: project(opts),
+    $environment: environment(opts),
+    $user: user(opts)
+  }
 }

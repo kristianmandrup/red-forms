@@ -14,7 +14,10 @@
   },
   "babel": {
     "presets": [
-      "vue-app"
+      "env"
+    ],
+    "plugins": [
+      "transform-runtime"
     ]
   },
   "author": {
@@ -24,7 +27,9 @@
   "ava": {
     "babel": "inherit",
     "require": [
-      "./test/helpers/setup.js"
+      "./test/helpers/setup.js",
+      "babel-register",
+      "babel-polyfill"
     ]
   },
   "dependencies": {
@@ -38,14 +43,20 @@
   },
   "devDependencies": {
     "ava": "^0.19.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-register": "^6.24.1",
     "browser-env": "^2.0.31",
     "cross-env": "^5.0.0",
+    "fetch-mock": "^5.11.0",
     "poi": "^8.0.0",
     "poi-preset-bundle-report": "^1.0.1",
     "poi-preset-offline": "^8.0.0",
     "require-extension-hooks": "^0.2.0",
     "require-extension-hooks-babel": "^0.1.1",
     "require-extension-hooks-vue": "^0.3.1",
-    "serve": "^3.1.0"
+    "serve": "^3.1.0",
+    "supertest": "^3.0.0"
   }
 }
