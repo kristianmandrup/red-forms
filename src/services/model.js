@@ -1,6 +1,6 @@
 // import Resource from 'vue-resource'
 import {
-  Fetch as $
+  Fetch
 } from 'vue-fetch'
 
 import {
@@ -14,19 +14,21 @@ export function model(opts = {}) {
     host
   } = opts
 
+  const $ = Fetch(opts)
+
   host = host || 'localhost:8080'
   let url = `${host}/${opts.name}`
 
   const findAll = async function (id) {
-    await doRequest('findAll', async() => await $.fetch(`${url}/`))
+    await doRequest('findAll', async() => await $.fetch(`${url}/`), opts)
   }
 
   const findById = async function (id) {
-    await doRequest('findById', async() => await $.fetch(`${url}/${id}`))
+    await doRequest('findById', async() => await $.fetch(`${url}/${id}`), opts)
   }
 
   const deleteById = async function (id) {
-    await doRequest('deleteById', async() => await $.delete(`${url}/${id}`))
+    await doRequest('deleteById', async() => await $.delete(`${url}/${id}`), opts)
   }
 
   const createOrUpdate = async function (data) {
@@ -38,7 +40,7 @@ export function model(opts = {}) {
   }
 
   const create = async function (data) {
-    await doRequest('create', async() => await $.post(`${url}/`, data))
+    return await doRequest('create', async() => await $.post(`${url}/`, data), opts)
   }
 
   return {

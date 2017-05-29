@@ -31,6 +31,10 @@ Maybe better with:
 
 See [example](https://medium.com/codingthesmartway-com-blog/vue-js-2-vue-resource-real-world-vue-application-with-external-api-access-c3de83f25c00)
 
+## Testing
+
+See [Ava Vue Recipe](https://github.com/avajs/ava/blob/master/docs/recipes/vue.md)
+
 ## Commands
 
 You can replace `yarn` with `npm run` here.

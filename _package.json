@@ -12,20 +12,24 @@
     "serve": "serve dist --single",
     "test": "cross-env NODE_ENV=test ava"
   },
+  "babel": {
+    "presets": [
+      "vue-app"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
   "author": {
     "name": "Kristian Mandrup",
     "email": "kmandrup@gmail.com"
   },
-
-  "babel": {
-    "presets": [
-      "vue-app"
-    ]
-  },
   "ava": {
     "babel": "inherit",
     "require": [
-      "./test/helpers/setup.js"
+      "./test/helpers/setup.js",
+      "babel-register",
+      "babel-polyfill"
     ]
   },
   "dependencies": {
@@ -42,7 +46,6 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.5.1",
-    "babel-preset-vue-app": "^1.2.0",
     "babel-register": "^6.24.1",
     "browser-env": "^2.0.31",
     "cross-env": "^5.0.0",

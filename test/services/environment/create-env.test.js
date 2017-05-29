@@ -13,7 +13,9 @@ console.log({
 
 const {
   $project
-} = configure()
+} = configure({
+  logging: true
+})
 
 test.afterEach(done => {
   fetchMock.restore();
