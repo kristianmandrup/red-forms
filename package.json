@@ -16,7 +16,6 @@
     "name": "Kristian Mandrup",
     "email": "kmandrup@gmail.com"
   },
-
   "babel": {
     "presets": [
       "vue-app"
@@ -39,6 +38,7 @@
   },
   "devDependencies": {
     "ava": "^0.19.1",
+    "babel-core": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.5.1",
