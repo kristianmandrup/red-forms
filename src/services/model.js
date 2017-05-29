@@ -19,6 +19,13 @@ export function model(opts = {}) {
   host = host || 'https://localhost:8080'
   let url = `${host}/${opts.name}`
 
+  const invite = async function ({
+    id,
+    users
+  }) {
+    await doRequest('invite', async(data) => await $.post(`${url}/invite`, data), opts)
+  }
+
   const findAll = async function (id) {
     await doRequest('findAll', async() => await $.fetch(`${url}/`), opts)
   }
@@ -52,6 +59,7 @@ export function model(opts = {}) {
   }
 
   return {
+    invite,
     createOrUpdate,
     create,
     deleteById,

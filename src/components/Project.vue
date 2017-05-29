@@ -37,6 +37,8 @@
         <md-textarea id="description"
                      v-model="description"></md-textarea>
       </md-input-container>
+      <user-invite entity="project"
+                   id="{{ id}}" />
     </md-card-content>
   
     <md-card-actions>
@@ -53,10 +55,16 @@ const services = configure({
   // host:
 })
 
+import UserInvite from './Invite'
+
 export default {
   name: 'project',
+  components: {
+    UserInvite
+  },
   data: function () {
     return {
+      id: '123',
       name: '',
       type: '',
       description: '',

@@ -1,5 +1,5 @@
 import {
-  model
+  model,
 } from './model'
 
 export function project(opts = {}) {
