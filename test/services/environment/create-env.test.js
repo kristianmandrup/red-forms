@@ -43,7 +43,7 @@ test('create environment', async t => {
     name: 'my-project'
   }
 
-  // fake response on any post for simplicity
+  // fake response on any POST for simplicity
   fetchMock.post('*', response)
 
   const {

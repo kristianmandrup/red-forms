@@ -41,8 +41,8 @@ test('create environment', async t => {
   // what to delete via "fetch"
   let name = 'my-project'
 
-  // fake response on any post for simplicity
-  fetchMock.post('*', response)
+  // fake response on any DELETE for simplicity
+  fetchMock.delete('*', response)
 
   const {
     $project
