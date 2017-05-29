@@ -45,46 +45,25 @@ export default {
   data: function () {
     return {
       name: '',
-      type: '',
       description: '',
       role: '',
       roles: [{
         id: 'admin',
         label: 'admin',
         value: 'admin'
-      }],
-      environments: [
-        {
-          id: 'dev',
-          value: 'dev',
-          label: 'development'
-        },
-        {
-          id: 'test',
-          value: 'test',
-          label: 'testing'
-        },
-        {
-          id: 'stage',
-          label: 'staging',
-          value: 'stage'
-        }
-      ]
+      }]
     }
   },
   methods: {
+    $data() {
+      return {
+        name,
+        role,
+        description
+      } = this
+    },
     save() {
-      console.log('save')
-    }
-  },
-  ready: function () {
-    console.log('User component ready')
-  },
-  route: {
-    activate() {
-      this.$nextTick(function () {
-        console.log('Activated User component for route')
-      })
+      services.$user.createOrUpdate(this.$data())
     }
   }
 }

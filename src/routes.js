@@ -2,6 +2,7 @@ import {
   Home,
   User,
   Project,
+  Repo,
   Environment,
   Organisation
 } from './components'
@@ -22,6 +23,11 @@ export default [{
     path: '/project',
     name: 'project',
     component: Project
+  },
+  {
+    path: '/repo',
+    name: 'repo',
+    component: Repo
   },
   {
     path: '/organisation',

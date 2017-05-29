@@ -38,8 +38,8 @@ test('find project', async t => {
     result
   }
 
-  // what to delete via "fetch"
-  let name = name: 'my-project'
+  // what to find via "fetch"
+  let name = 'my-project'
 
   // fake response on any GET for simplicity
   fetchMock.get('*', response)

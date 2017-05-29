@@ -27,25 +27,25 @@ test.afterEach(done => {
   fetchMock.restore();
 })
 
-test('delete project', async t => {
+test('find repo', async t => {
   // expected result
   let result = {
-    type: 'Project',
-    status: 'deleted'
+    type: 'Repo',
+    status: 'found'
   }
 
   let response = {
     result
   }
 
-  // what to delete via "fetch"
-  let name = 'my-project'
+  // what to find via "fetch"
+  let name = 'my-repo'
 
-  // fake response on any DELETE for simplicity
-  fetchMock.delete('*', response)
+  // fake response on any GET for simplicity
+  fetchMock.get('*', response)
 
   const {
-    $project
+    $repo
   } = configure({
     // logging: true,
     // fetch,
@@ -53,7 +53,7 @@ test('delete project', async t => {
     createHeaders
   })
 
-  let request = $project.deleteByName
+  let request = $repo.findByName
 
   t.is(typeof request, 'function')
 

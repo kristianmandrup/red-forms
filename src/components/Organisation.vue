@@ -20,6 +20,9 @@
         <md-textarea id="description"
                      v-model="description"></md-textarea>
       </md-input-container>
+      <user-invite entity="project"
+                   :id="id" />
+  
     </md-card-content>
   
     <md-card-actions>
@@ -40,6 +43,7 @@ export default {
   name: 'organisation',
   data: function () {
     return {
+      id: '123',
       name: '',
       description: '',
     }
@@ -52,7 +56,7 @@ export default {
       } = this
     },
 
-    // call service to create project
+    // call service to create organisation
     save() {
       services.$organisation.createOrUpdate(this.$data())
     }

@@ -39,7 +39,7 @@ test('delete environment', async t => {
   }
 
   // what to delete via "fetch"
-  let name = name: 'my-env'
+  let name = 'my-env'
 
   // fake response on any DELETE for simplicity
   fetchMock.delete('*', response)

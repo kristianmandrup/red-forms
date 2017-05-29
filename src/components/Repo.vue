@@ -3,8 +3,8 @@
            md-with-hover>
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">Environment</div>
-        <div class="md-subhead">Define your environment details</div>
+        <div class="md-title">Repository</div>
+        <div class="md-subhead">Define your repository details</div>
       </md-card-header-text>
     </md-card-header>
   
@@ -22,20 +22,27 @@
   
           <md-option v-for="typ in types"
                      :key="typ.id"
+                     :selected="typ.selected"
                      :value="typ.value">{{ typ.label }}</md-option>
         </md-select>
       </md-input-container>
   
       <md-input-container>
-        <label for="branch">Branch</label>
-        <md-select id="branch"
-                   v-model="branch">
-  
-          <md-option v-for="branch in branches"
-                     :key="branch.id"
-                     :value="branch.value">{{ branch.label }}</md-option>
-        </md-select>
+        <label>Location</label>
+        <md-input id="location"
+                  v-model="location"></md-input>
       </md-input-container>
+  
+      <div class="input-container">
+        <label for="environments"
+               class="inputs">Branches</label>
+        <div id="environments"
+             v-for="env in form.branches">
+          <md-checkbox :id="env.id"
+                       :value="env.value"
+                       v-model="env.checked">{{ env.label }}</md-checkbox>
+        </div>
+      </div>
   
       <md-input-container>
         <label>Description</label>
@@ -57,38 +64,60 @@ export default {
   data: function () {
     return {
       name: '',
+      location: '',
       type: '',
       types: [{
-        value: 'dev',
-        label: 'development'
+        value: 'github',
+        label: 'github',
+        selected: true
       }, {
-        value: 'test',
-        label: 'testing'
+        value: 'gitlab',
+        label: 'gitlab'
       }
       ],
       description: '',
-      branch: '',
-      branches: [
-        {
-          id: 'dev',
-          value: 'dev',
-          label: 'experiments'
-        },
-        {
-          id: 'test',
-          value: 'test',
-          label: 'my-testing'
-        }]
+      form: {
+        branches: [
+          {
+            id: 'dev',
+            value: 'dev',
+            label: 'development',
+            checked: true
+          },
+          {
+            id: 'test',
+            value: 'test',
+            label: 'testing',
+            checked: false
+          },
+          {
+            id: 'stage',
+            label: 'staging',
+            value: 'stage',
+            checked: true
+          }
+        ]
+      }
     }
   },
   methods: {
     $data() {
+      this.branches = this.$branches()
       return {
         name,
-        branch,
-        type,
+        location,
+        branches,
         description
       } = this
+    },
+
+    $branches() {
+      return this.form.branches.map((acc, env) => {
+        if (env.checked) {
+          acc[env.id] = env.value
+        }
+        return acc
+      }, {})
     },
 
     // call service to create organisation

@@ -38,8 +38,8 @@ test('find environment', async t => {
     result
   }
 
-  // what to delete via "fetch"
-  let name = name: 'my-env'
+  // what to find via "fetch"
+  let name = 'my-env'
 
   // fake response on any GET for simplicity
   fetchMock.get('*', response)

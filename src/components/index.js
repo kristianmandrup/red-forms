@@ -19,6 +19,10 @@ export {
 }
 from './Environment.vue'
 export {
+  default as Repo
+}
+from './Repo.vue'
+export {
   default as Organisation
 }
 from './Organisation.vue'
