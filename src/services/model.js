@@ -27,8 +27,16 @@ export function model(opts = {}) {
     await doRequest('findById', async() => await $.fetch(`${url}/${id}`), opts)
   }
 
+  const findByName = async function (name) {
+    await doRequest('findById', async() => await $.fetch(`${url}/name/${name}`), opts)
+  }
+
   const deleteById = async function (id) {
     await doRequest('deleteById', async() => await $.delete(`${url}/${id}`), opts)
+  }
+
+  const deleteByName = async function (name) {
+    await doRequest('deleteById', async() => await $.delete(`${url}/name/${name}`), opts)
   }
 
   const createOrUpdate = async function (data) {
@@ -48,6 +56,8 @@ export function model(opts = {}) {
     create,
     deleteById,
     findById,
+    deleteByName,
+    findByName,
     findAll, // for user?
   }
 }

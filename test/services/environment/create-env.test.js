@@ -14,12 +14,9 @@ const {
 } = fetcher({})
 
 // mock-fetch-api
-
 // console.log({
 //   configure
 // })
-
-
 function createHeaders(obj) {
   return obj
 }
@@ -41,7 +38,7 @@ test('create environment', async t => {
     result
   }
 
-  // what to "fetch"
+  // what to POST via "fetch"
   let data = {
     name: 'my-project'
   }
@@ -58,14 +55,15 @@ test('create environment', async t => {
     createHeaders
   })
 
+  let request = $project.create
 
-  t.is(typeof $project.create, 'function')
+  t.is(typeof request, 'function')
 
-  let created = await $project.create(data)
+  let result = await request(data)
   let res = {
-    status: created.status,
-    statusText: created.statusText,
-    json: await created.json()
+    status: result.status,
+    statusText: result.statusText,
+    json: await result.json()
   }
 
   t.deepEqual(res.json, response)
