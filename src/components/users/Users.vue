@@ -11,10 +11,10 @@
     <md-card-content>
       <md-list>
         <md-list-item v-for="item in users"
-                      :key="user.id">
+                      :key="item.id">
           <md-avatar>
             <img src="https://placeimg.com/40/40/people/5"
-                 :alt="repo.description">
+                 :alt="item.description">
           </md-avatar>
   
           <span>{{ item.name }}</span>

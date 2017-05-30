@@ -57,6 +57,8 @@ export default {
   // },
   data: function () {
     return {
+      title: 'Organisations',
+      subtitle: 'Manage your organisations',
       toBeDeleted: [],
       organisations,
     }

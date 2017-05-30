@@ -57,6 +57,8 @@ export default {
   // },
   data: function () {
     return {
+      title: 'Environments',
+      subtitle: 'Manage your environments',
       toBeDeleted: [],
       environments,
     }

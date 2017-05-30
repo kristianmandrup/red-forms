@@ -46,7 +46,7 @@ import { configure } from '../../services'
 const services = configure({
   // host:
 })
-
+import { projects } from '../../fixtures/data'
 // import UserInvite from './Invite'
 
 export default {

@@ -1,12 +1,15 @@
 import {
   Home,
   User,
+  Users,
   Project,
   Projects,
   Repo,
   Repos,
   Environment,
-  Organisation
+  Environments,
+  Organisation,
+  Organisations,
 } from './components'
 
 // import Simple from './components/Simple.vue'
@@ -20,6 +23,11 @@ export default [{
     path: '/user',
     name: 'user',
     component: User
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: Users
   },
   {
     path: '/project',
@@ -47,8 +55,18 @@ export default [{
     component: Organisation
   },
   {
+    path: '/organisations',
+    name: 'organisations',
+    component: Organisations
+  },
+  {
     path: '/environment',
     name: 'environment',
     component: Environment
+  },
+  {
+    path: '/environments',
+    name: 'environments',
+    component: Environments
   },
 ]

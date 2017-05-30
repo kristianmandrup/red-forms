@@ -25,12 +25,14 @@ export {
 from './repos'
 
 export {
-  Environment
+  Environment,
+  Environments
 }
 from './environments'
 
 
 export {
-  Organisation
+  Organisation,
+  Organisations
 }
 from './organisations'
