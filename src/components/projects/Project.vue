@@ -50,12 +50,12 @@
 
 <script>
 // service
-import { configure } from '../services'
+import { configure } from '../../services'
 const services = configure({
   // host:
 })
 
-import UserInvite from './Invite'
+import UserInvite from '../Invite'
 
 export default {
   name: 'project',

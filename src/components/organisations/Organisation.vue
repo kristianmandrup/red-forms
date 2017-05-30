@@ -34,7 +34,7 @@
 
 <script>
 // service
-import { configure } from '../services'
+import { configure } from '../../services'
 const services = configure({
   // host:
 })

@@ -13,29 +13,24 @@ export {
 from './users'
 
 export {
-  default as Project
+  Project,
+  Projects
 }
-from './Project.vue'
-export {
-  default as Projects
-}
-from './Projects.vue'
+from './projects'
 
 export {
-  default as Environment
+  Repo,
+  Repos
 }
-from './Environment.vue'
+from './repos'
+
 export {
-  default as Repo
+  Environment
 }
-from './Repo.vue'
-export {
-  default as Repos
-}
-from './Repos.vue'
+from './environments'
 
 
 export {
-  default as Organisation
+  Organisation
 }
-from './Organisation.vue'
+from './organisations'
