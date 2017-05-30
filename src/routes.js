@@ -4,6 +4,7 @@ import {
   Project,
   Projects,
   Repo,
+  Repos,
   Environment,
   Organisation
 } from './components'
@@ -34,6 +35,11 @@ export default [{
     path: '/repo',
     name: 'repo',
     component: Repo
+  },
+  {
+    path: '/repos',
+    name: 'repos',
+    component: Repos
   },
   {
     path: '/organisation',
