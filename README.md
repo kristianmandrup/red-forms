@@ -10,7 +10,6 @@
 
 ## Vue Router
 
-See:
 - [tutorial](https://www.youtube.com/watch?v=X-cs3UfqfYA)
 - [blog post](https://medium.com/@softwarecf/getting-started-with-vue-router-37cd7d783245)
 - [Egghead tuturial](https://egghead.io/lessons/vue-get-up-and-running-with-vue-router)
@@ -20,12 +19,11 @@ each component can have it's own router!!
 
 ## Services
 
-Been experimenting with:
+Using fetch API via:
 
 - [vue-fetch](https://github.com/kristianmandrup/vue-fetch#outside-component)
-- [vue-resource](https://github.com/pagekit/vue-resource/issues/612)
 
-Maybe better with:
+Could also look at:
 
 - [vue-services](https://www.npmjs.com/package/vue-services)
 

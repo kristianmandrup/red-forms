@@ -3,8 +3,8 @@
            md-with-hover>
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">Environment</div>
-        <div class="md-subhead">Define your environment details</div>
+        <div class="md-title">Branch</div>
+        <div class="md-subhead">Define your branch details</div>
       </md-card-header-text>
     </md-card-header>
   
@@ -22,18 +22,20 @@
   
           <md-option v-for="typ in types"
                      :key="typ.id"
+                     :selected="typ.selected"
                      :value="typ.value">{{ typ.label }}</md-option>
         </md-select>
       </md-input-container>
   
       <md-input-container>
-        <label for="branch">Branch</label>
-        <md-select id="branch"
-                   v-model="branch">
+        <label>Repo</label>
+        <md-select id="type"
+                   v-model="type">
   
-          <md-option v-for="branch in branches"
-                     :key="branch.id"
-                     :value="branch.value">{{ branch.label }}</md-option>
+          <md-option v-for="typ in types"
+                     :key="typ.id"
+                     :selected="typ.selected"
+                     :value="typ.value">{{ typ.label }}</md-option>
         </md-select>
       </md-input-container>
   
@@ -58,47 +60,49 @@ const services = configure({
 })
 
 export default {
-  name: 'project',
+  name: 'branch',
   data: function () {
     return {
       name: '',
+      location: '',
+      description: '',
       type: '',
       types: [{
-        value: 'dev',
-        label: 'development'
-      }, {
         value: 'test',
-        label: 'testing'
-      }
-      ],
-      description: '',
-      branch: '',
-      branches: [
-        {
-          id: 'dev',
-          value: 'dev',
-          label: 'experiments'
-        },
-        {
-          id: 'test',
-          value: 'test',
-          label: 'my-testing'
-        }]
+        label: 'test',
+        selected: true
+      }, {
+        value: 'develop',
+        label: 'develop'
+      }],
+      repo: '',
+      repos: [{
+        value: 'github:tecla5/cms',
+        label: 'old cms',
+        selected: true
+      }, {
+        value: 'github:tecla5/dock-me-up',
+        label: 'dock me up'
+      }],
     }
+  },
+  created() {
+    let name = 'branch'
+    this.service = services[name]
   },
   methods: {
     formData() {
       return {
         name,
-        branch,
         type,
+        repo,
         description
       } = this
     },
 
     // call service to create organisation
     async save() {
-      await services.$environment.createOrUpdate(this.formData())
+      await this.service.createOrUpdate(this.formData())
     }
   }
 }

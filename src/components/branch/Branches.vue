@@ -1,17 +1,16 @@
-
 <template>
   <md-card md-primary
            md-with-hover>
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">{{ title }} </div>
-        <div class="md-subhead">{{ subtitle }}</div>
+        <div class="md-title">Repositories</div>
+        <div class="md-subhead">Manage your repositories</div>
       </md-card-header-text>
     </md-card-header>
   
     <md-card-content>
       <md-list>
-        <md-list-item v-for="item in items"
+        <md-list-item v-for="item in repos"
                       :key="item.id">
           <md-avatar>
             <img src="https://placeimg.com/40/40/people/5"
@@ -47,77 +46,38 @@ import { configure } from '../../services'
 const services = configure({
   // host:
 })
+import { repos } from '../../fixtures/data'
 // import UserInvite from './Invite'
 
 export default {
-  name: 'entity-list',
+  name: 'projects',
   // components: {
   //   UserInvite
   // },
-  props: {
-    entity: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    subtitle: {
-      type: String,
-      required: true
-    },
-    items: {
-      type: Array,
-      required: true
-    }
-  },
   data: function () {
     return {
-      error: '',
-      items: [],
-      toBeDeleted: []
+      toBeDeleted: [],
+      repos,
     }
   },
-  created() {
-    let name = `$${this.entity}`
-    this.service = services[name]
-  },
-  mounted() {
-    this.$nextTick(async tick => {
-      await this.loadData()
-    })
-  },
   methods: {
-    async loadData() {
-      await this.getItems()
-    },
-
-    async getItems() {
-      try {
-        let items = await this.service.findAll()
-        this.items = items
-      } catch (error) {
-        this.error = error
-      }
-    },
-
     deleteOne(item) {
-      console.log('delete', { item })
-      try {
-        let deleted = await service.deleteById({ id: item.id })
-      } catch (error) {
-        this.error = error
-      }
+      console.log('delete repo', { item })
     },
     showOne(item) {
-      console.log('show', { item })
-      this.$router.push({ name: this.entity, id: item.id })
+      console.log('show repo', { item })
+      this.$router.push({ name: 'repo', id: id })
     },
     createNew() {
-      console.log('create')
-      this.$router.push({ name: this.entity })
+      console.log('create new')
+      this.$router.push({ name: 'repo' })
     }
   }
 }
 </script>
+
+<style>
+.input-container label.inputs {
+  font-size: 1.2em !important;
+}
+</style>
