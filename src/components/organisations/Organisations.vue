@@ -1,20 +1,21 @@
+
 <template>
   <md-card md-primary
            md-with-hover>
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">{{ title }}</div>
+        <div class="md-title">{{ title }} </div>
         <div class="md-subhead">{{ subtitle }}</div>
       </md-card-header-text>
     </md-card-header>
   
     <md-card-content>
       <md-list>
-        <md-list-item v-for="item in users"
-                      :key="user.id">
+        <md-list-item v-for="item in organisations"
+                      :key="item.id">
           <md-avatar>
             <img src="https://placeimg.com/40/40/people/5"
-                 :alt="repo.description">
+                 :alt="item.description">
           </md-avatar>
   
           <span>{{ item.name }}</span>
@@ -46,7 +47,7 @@ import { configure } from '../../services'
 const services = configure({
   // host:
 })
-import { users } from '../../fixtures/data'
+import { organisations } from '../../fixtures/data'
 // import UserInvite from './Invite'
 
 export default {
@@ -56,23 +57,21 @@ export default {
   // },
   data: function () {
     return {
-      title: 'Users',
-      subtitle: 'Manage your users',
       toBeDeleted: [],
-      users
+      organisations,
     }
   },
   methods: {
     deleteOne(item) {
-      console.log('delete user', { item })
+      console.log('delete org', { item })
     },
     showOne(item) {
-      console.log('show user', { item })
-      this.$router.push({ name: 'user', id: id })
+      console.log('show org', { item })
+      this.$router.push({ name: 'organisation', id: id })
     },
     createNew() {
       console.log('create new')
-      this.$router.push({ name: 'user' })
+      this.$router.push({ name: 'organisation' })
     }
   }
 }

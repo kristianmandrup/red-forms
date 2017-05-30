@@ -1,11 +1,11 @@
-export const users = [{
+export const repos = [{
   id: '124',
-  name: 'me',
-  description: 'a nice user',
+  name: 'my-repo',
+  description: 'a nice repo',
   image: 'people/5'
 }, {
   id: '676',
-  name: 'sandy',
-  description: 'My crazy wife',
+  name: 'other-repo',
+  description: 'My crazy play repo',
   image: 'people/3'
 }]

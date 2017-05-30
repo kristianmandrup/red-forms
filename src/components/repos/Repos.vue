@@ -10,20 +10,20 @@
   
     <md-card-content>
       <md-list>
-        <md-list-item v-for="repo in repositories"
-                      :key="repo.id">
+        <md-list-item v-for="item in repos"
+                      :key="item.id">
           <md-avatar>
             <img src="https://placeimg.com/40/40/people/5"
-                 :alt="repo.description">
+                 :alt="item.description">
           </md-avatar>
   
-          <span>{{ repo.name }}</span>
-          <md-button @click.native="showRepo(repo)"
+          <span>{{ item.name }}</span>
+          <md-button @click.native="showOne(item)"
                      class="md-icon-button md-list-action">
             <md-icon class="md-primary">info</md-icon>
           </md-button>
   
-          <md-button @click.native="deleteRepo(repo)"
+          <md-button @click.native="deleteOne(item)"
                      class="md-icon-button md-list-action">
             <md-icon class="md-primary">delete</md-icon>
           </md-button>
@@ -46,7 +46,7 @@ import { configure } from '../../services'
 const services = configure({
   // host:
 })
-
+import { repos } from '../../fixtures/data'
 // import UserInvite from './Invite'
 
 export default {
@@ -57,26 +57,16 @@ export default {
   data: function () {
     return {
       toBeDeleted: [],
-      repositories: [{
-        id: '124',
-        name: 'my-repo',
-        description: 'a nice repo',
-        image: 'people/5'
-      }, {
-        id: '676',
-        name: 'other-repo',
-        description: 'My crazy play repo',
-        image: 'people/3'
-      }]
+      repos,
     }
   },
   methods: {
-    deleteRepo(repo) {
-      console.log('delete repo', { repo })
+    deleteOne(item) {
+      console.log('delete repo', { item })
     },
-    showRepo(repo) {
-      console.log('show repo', { repo })
-      this.$router.push({ name: 'project', id: id })
+    showOne(item) {
+      console.log('show repo', { item })
+      this.$router.push({ name: 'repo', id: id })
     },
     createNew() {
       console.log('create new')

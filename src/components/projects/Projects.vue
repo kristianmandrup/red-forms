@@ -10,20 +10,20 @@
   
     <md-card-content>
       <md-list>
-        <md-list-item v-for="project in projects"
-                      :key="project.id">
+        <md-list-item v-for="item in projects"
+                      :key="item.id">
           <md-avatar>
             <img src="https://placeimg.com/40/40/people/5"
-                 :alt="project.description">
+                 :alt="item.description">
           </md-avatar>
   
-          <span>{{ project.name }}</span>
-          <md-button @click.native="showProject(project)"
+          <span>{{ item.name }}</span>
+          <md-button @click.native="showOne(item)"
                      class="md-icon-button md-list-action">
             <md-icon class="md-primary">info</md-icon>
           </md-button>
   
-          <md-button @click.native="deleteProject(project)"
+          <md-button @click.native="deleteOne(item)"
                      class="md-icon-button md-list-action">
             <md-icon class="md-primary">delete</md-icon>
           </md-button>
@@ -57,25 +57,15 @@ export default {
   data: function () {
     return {
       toBeDeleted: [],
-      projects: [{
-        id: '124',
-        name: 'my-proj',
-        description: 'a nice project',
-        image: 'people/5'
-      }, {
-        id: '676',
-        name: 'other-proj',
-        description: 'My crazy plaything',
-        image: 'people/3'
-      }]
+      projects,
     }
   },
   methods: {
-    deleteProject(project) {
-      console.log('delete project', { project })
+    deleteOne(item) {
+      console.log('delete project', { item })
     },
-    showProject(project) {
-      console.log('show project', { project })
+    showOne(item) {
+      console.log('show project', { item })
       this.$router.push({ name: 'project', id: id })
     },
     createNew() {
