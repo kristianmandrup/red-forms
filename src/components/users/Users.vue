@@ -3,27 +3,27 @@
            md-with-hover>
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">Repositories</div>
-        <div class="md-subhead">Manage your repositories</div>
+        <div class="md-title">{{ title }}</div>
+        <div class="md-subhead">{{ subtitle }}</div>
       </md-card-header-text>
     </md-card-header>
   
     <md-card-content>
       <md-list>
-        <md-list-item v-for="repo in repositories"
-                      :key="repo.id">
+        <md-list-item v-for="item in users"
+                      :key="user.id">
           <md-avatar>
             <img src="https://placeimg.com/40/40/people/5"
                  :alt="repo.description">
           </md-avatar>
   
-          <span>{{ repo.name }}</span>
-          <md-button @click.native="showRepo(repo)"
+          <span>{{ item.name }}</span>
+          <md-button @click.native="showOne(item)"
                      class="md-icon-button md-list-action">
             <md-icon class="md-primary">info</md-icon>
           </md-button>
   
-          <md-button @click.native="deleteRepo(repo)"
+          <md-button @click.native="deleteOne(item)"
                      class="md-icon-button md-list-action">
             <md-icon class="md-primary">delete</md-icon>
           </md-button>
@@ -42,11 +42,11 @@
 
 <script>
 // service
-import { configure } from '../services'
+import { configure } from '../../services'
 const services = configure({
   // host:
 })
-
+import { users } from '../../fixtures/data'
 // import UserInvite from './Invite'
 
 export default {
@@ -56,18 +56,10 @@ export default {
   // },
   data: function () {
     return {
+      title: 'Users',
+      subtitle: 'Manage your users',
       toBeDeleted: [],
-      repositories: [{
-        id: '124',
-        name: 'my-repo',
-        description: 'a nice repo',
-        image: 'people/5'
-      }, {
-        id: '676',
-        name: 'other-repo',
-        description: 'My crazy play repo',
-        image: 'people/3'
-      }]
+      items: users
     }
   },
   methods: {

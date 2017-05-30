@@ -7,9 +7,10 @@ export {
 }
 from './Home.vue'
 export {
-  default as User
+  User,
+  Users
 }
-from './User.vue'
+from './users'
 
 export {
   default as Project

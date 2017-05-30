@@ -32,8 +32,10 @@
     </md-card-content>
   
     <md-card-actions>
-      <md-button @click="deleteSelected()">Delete</md-button>
-      <md-button @click="clear()">Clear</md-button>
+      <md-button @click.native="createNew()"
+                 class="md-icon-button md-raised">
+        <md-icon class="md-primary">add</md-icon>
+      </md-button>
     </md-card-actions>
   </md-card>
 </template>
@@ -74,17 +76,11 @@ export default {
     },
     showProject(project) {
       console.log('show project', { project })
-      // , router: this.$router
-      // this.$router.push({ name: 'project', id: id })
+      this.$router.push({ name: 'project', id: id })
     },
-    clear() {
-      console.log('clear')
-    },
-    // call service to create project
-    async deleteSelected() {
-      await services.$project.deleteAll({
-        ids: this.toBeDeleted
-      })
+    createNew() {
+      console.log('create new')
+      this.$router.push({ name: 'project' })
     }
   }
 }
