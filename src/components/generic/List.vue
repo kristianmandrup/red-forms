@@ -75,14 +75,36 @@ export default {
   data: function () {
     return {
       error: '',
+      items: [],
       toBeDeleted: []
     }
   },
+  async created() {
+    let name = `$${this.entity}`
+    this.service = services[name]
+
+  },
+  mounted() {
+    this.$nextTick(async tick => {
+      await this.loadData()
+    })
+  },
   methods: {
+    async loadData() {
+      await this.getItems()
+    },
+
+    async getItems() {
+      try {
+        let items = await this.service.findAll()
+        this.items = items
+      } catch (error) {
+        this.error = error
+      }
+    },
+
     deleteOne(item) {
       console.log('delete', { item })
-      let name = `$${this.entity}`
-      let service = services[name]
       try {
         let deleted = await service.deleteById({ id: item.id })
       } catch (error) {
