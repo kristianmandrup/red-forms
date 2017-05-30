@@ -2,6 +2,7 @@ import {
   Home,
   User,
   Project,
+  Projects,
   Repo,
   Environment,
   Organisation
@@ -23,6 +24,11 @@ export default [{
     path: '/project',
     name: 'project',
     component: Project
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: Projects
   },
   {
     path: '/repo',
