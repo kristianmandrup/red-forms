@@ -17,6 +17,13 @@
 Consider instead using [vue-component-router](https://www.npmjs.com/package/vue-component-router) where
 each component can have it's own router!!
 
+## Vue-supply
+
+Realtime store publish/subscribe events integrated with [VueX](https://vuex.vuejs.org/en/)
+
+[vue-supply](https://github.com/Akryum/vue-supply)
+
+
 ## Services
 
 Using fetch API via:

@@ -3,6 +3,11 @@ import 'vue-material/dist/vue-material.css'
 import VueMaterial from 'vue-material'
 import VueRouter from 'vue-router'
 import VueFetch from 'vue-fetch'
+import Vuex from 'vuex'
+import VueSupply from 'vue-supply'
+
+Vue.use(Vuex)
+Vue.use(VueSupply)
 
 Vue.use(VueFetch, {
   // load promise polyfill

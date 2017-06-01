@@ -34,7 +34,9 @@
     "promise-polyfill": "^6.0.2",
     "vue-fetch": "github:kristianmandrup/vue-fetch",
     "vue-material": "^0.7.1",
-    "vue-router": "^2.5.3"
+    "vue-router": "^2.5.3",
+    "vue-supply": "^0.1.1",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "ava": "^0.19.1",
