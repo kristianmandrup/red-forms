@@ -41,7 +41,8 @@ Alternative to GraphQL
 
 For real-time data sync:
 
-[vue-syncers-feathers](https://www.npmjs.com/package/vue-syncers-feathers)
+- [vue-syncers-feathers](https://www.npmjs.com/package/vue-syncers-feathers)
+- [feathers-vuex](https://github.com/feathersjs/feathers-vuex)
 
 ## Services
 
