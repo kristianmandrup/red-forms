@@ -5,7 +5,19 @@ import VueRouter from 'vue-router'
 import VueFetch from 'vue-fetch'
 import Vuex from 'vuex'
 import VueSupply from 'vue-supply'
+import VueEvents from 'vue-events'
 
+import Rx from 'rxjs/Rx'
+import VueRx from 'vue-rx'
+
+// tada!
+Vue.use(VueRx, Rx)
+
+// when using FeathersJS
+// import VueFeathers from 'vue-feathers-services'
+// Vue.use(VueFeathers, app)
+
+Vue.use(VueEvents)
 Vue.use(Vuex)
 Vue.use(VueSupply)
 

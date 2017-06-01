@@ -17,12 +17,31 @@
 Consider instead using [vue-component-router](https://www.npmjs.com/package/vue-component-router) where
 each component can have it's own router!!
 
+## Vuex state manager
+
+Uses [Vuex](https://vuex.vuejs.org/en/getting-started.html) for state management
+
+## GraphQL
+
+[vue-curated-client](https://github.com/vuejs/vue-curated-client) is a full Vue2 GraphQL client/server app
+
 ## Vue-supply
 
-Realtime store publish/subscribe events integrated with [VueX](https://vuex.vuejs.org/en/)
+Realtime publish/subscribe events integrated with [Vuex](https://vuex.vuejs.org/en/)
 
 [vue-supply](https://github.com/Akryum/vue-supply)
 
+Will be used for real time service layer, either via [FeathersJS](https://feathersjs.com) or [GraphQL](http://graphql.org/) (via [GraphCool](https://www.graph.cool) with [Server Side Subscriptions](https://www.graph.cool/docs/reference/functions/server-side-subscriptions-ahlohd8ohn/))
+
+### Vue with Feathers services
+
+Alternative to GraphQL
+
+[vue-feathers-client](https://github.com/cklmercer/vue-feathers-client)
+
+For real-time data sync:
+
+[vue-syncers-feathers](https://www.npmjs.com/package/vue-syncers-feathers)
 
 ## Services
 
