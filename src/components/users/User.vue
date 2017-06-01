@@ -25,6 +25,28 @@
         </md-select>
       </md-input-container>
   
+      <div class="input-container">
+        <label for="projects"
+               class="inputs">Projects</label>
+        <div id="projects"
+             v-for="proj in form.projects">
+          <md-checkbox :id="proj.id"
+                       :value="proj.value"
+                       v-model="proj.checked">{{ proj.label }}</md-checkbox>
+        </div>
+      </div>
+  
+      <md-input-container>
+        <label>Add project</label>
+        <md-input id="add-branch"
+                  v-model="location"></md-input>
+        <md-button @click.native="addProject()"
+                   class="md-icon-button md-raised">
+          <md-icon class="md-primary">add</md-icon>
+        </md-button>
+  
+      </md-input-container>
+  
       <md-input-container>
         <label>Description</label>
         <md-textarea id="description"
@@ -49,9 +71,29 @@ export default {
       role: '',
       roles: [{
         id: 'admin',
-        label: 'admin',
+        label: 'administrator',
         value: 'admin'
-      }]
+      }, {
+        id: 'dev',
+        label: 'developer',
+        value: 'developer'
+      }],
+      form: {
+        projects: [
+          {
+            id: '123',
+            value: 'my-proj',
+            label: 'my project',
+            checked: true
+          },
+          {
+            id: '678',
+            value: 'hobby-proj',
+            label: 'my hobby project',
+            checked: true
+          }
+        ]
+      }
     }
   },
   methods: {

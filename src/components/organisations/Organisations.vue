@@ -48,10 +48,10 @@ const services = configure({
   // host:
 })
 import { organisations } from '../../fixtures/data'
-// import UserInvite from './Invite'
+// import UserInvite from '../Invite'
 
 export default {
-  name: 'projects',
+  name: 'organisations',
   // components: {
   //   UserInvite
   // },

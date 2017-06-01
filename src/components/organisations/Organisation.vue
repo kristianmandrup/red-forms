@@ -38,9 +38,13 @@ import { configure } from '../../services'
 const services = configure({
   // host:
 })
+import UserInvite from '../Invite'
 
 export default {
   name: 'organisation',
+  components: {
+    UserInvite
+  },
   data: function () {
     return {
       id: '123',

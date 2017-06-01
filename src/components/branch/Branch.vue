@@ -29,13 +29,13 @@
   
       <md-input-container>
         <label>Repo</label>
-        <md-select id="type"
+        <md-select id="repo"
                    v-model="type">
   
-          <md-option v-for="typ in types"
-                     :key="typ.id"
-                     :selected="typ.selected"
-                     :value="typ.value">{{ typ.label }}</md-option>
+          <md-option v-for="repo in repos"
+                     :key="repo.id"
+                     :selected="repo.selected"
+                     :value="repo.value">{{ repo.label }}</md-option>
         </md-select>
       </md-input-container>
   

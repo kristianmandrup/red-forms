@@ -34,15 +34,26 @@
       </md-input-container>
   
       <div class="input-container">
-        <label for="environments"
+        <label for="branches"
                class="inputs">Branches</label>
         <div id="environments"
-             v-for="env in form.branches">
-          <md-checkbox :id="env.id"
-                       :value="env.value"
-                       v-model="env.checked">{{ env.label }}</md-checkbox>
+             v-for="branch in form.branches">
+          <md-checkbox :id="branch.id"
+                       :value="branch.value"
+                       v-model="branch.checked">{{ branch.label }}</md-checkbox>
         </div>
       </div>
+  
+      <md-input-container>
+        <label>Add branch</label>
+        <md-input id="add-branch"
+                  v-model="location"></md-input>
+        <md-button @click.native="addBranch()"
+                   class="md-icon-button md-raised">
+          <md-icon class="md-primary">add</md-icon>
+        </md-button>
+  
+      </md-input-container>
   
       <md-input-container>
         <label>Description</label>
@@ -101,6 +112,10 @@ export default {
     }
   },
   methods: {
+    addBranch() {
+
+    },
+
     formData() {
       this.branches = this.selectedBranches()
       return {
