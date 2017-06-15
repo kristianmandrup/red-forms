@@ -57,6 +57,8 @@ This project will leverage the [easy-graphql-auth](https://github.com/tecla5/eas
 
 For now, only the [easy-auth0-lock](https://github.com/tecla5/easy-graphql-auth/tree/master/packages/easy-auth0-lock) should be used, as we will use a MongoDB backend (via Mongoose) at present.
 
+Note: The auth module has not yet been published to npm. Will be done before next week (ie. before 20th of June). Don't be concerned about the Auth part until it is ready!
+
 The Git (entities) import UI should allow user to choose which `organisations`, `teams`, `team members` (users) and `repositories` + `branches` to import
 
 - [Auth0 Github signin with authorization grants](https://auth0.com/docs/connections/social/github)
