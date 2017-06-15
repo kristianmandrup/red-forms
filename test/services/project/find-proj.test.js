@@ -29,9 +29,11 @@ test.afterEach(done => {
 
 test('find project', async t => {
   // expected result
-  let result = {
-    type: 'Project',
-    status: 'found'
+  let expected = {
+    result: {
+      type: 'Project',
+      status: 'found'
+    }
   }
 
   let response = {

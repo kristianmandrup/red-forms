@@ -29,9 +29,11 @@ test.afterEach(done => {
 
 test('find environment', async t => {
   // expected result
-  let result = {
-    type: 'Env',
-    status: 'found'
+  let expected = {
+    result: {
+      type: 'Env',
+      status: 'found'
+    }
   }
 
   let response = {

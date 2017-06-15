@@ -32,6 +32,25 @@ Ideally, most of the data is already configured for most organisations in git re
 
 We need to enable importing this data from existing company (cloud) resources so that they can get up and running more quickly (and with less chance of making errors!)
 
+### Manage list of entities
+
+Currently the form to manage a list of entities are almost identical. In order to reduce duplication, work has started on a generic `List` form which could replace most (if not all) of these forms, passing `props` as needed to customize `title`, which `$service` is used etc.
+
+### Services
+
+The folder `/services` contains a [Fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API) to call a backend API that it turn communicates with a data store such as Mongo DB.
+
+Test skeletons for these services can be found in `/test/services`
+
+For now, use an in-memory DB or simply mock the responses to simulate a fully functional backend - it will be integrated later (next iteration)
+
+## State
+
+Currently the application state is managed by each component.
+We want to use the [Vuex](https://vuex.vuejs.org/en/intro.html) state manager to act as a single store to manage the application state, similar to Redux for React apps.
+
+See *Resources* section below for more details on possible solutions for state management.
+
 ## Import organisation data
 
 This project will leverage the [easy-graphql-auth](https://github.com/tecla5/easy-graphql-auth) project using Auth0 in order to login with Github and similar cloud repositories to collect data:

@@ -29,9 +29,11 @@ test.afterEach(done => {
 
 test('create repo', async t => {
   // expected result
-  let result = {
-    type: 'Repo',
-    status: 'created'
+  let expected = {
+    result: {
+      type: 'Repo',
+      status: 'created'
+    }
   }
 
   let response = {

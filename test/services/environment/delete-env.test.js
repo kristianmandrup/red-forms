@@ -29,9 +29,11 @@ test.afterEach(done => {
 
 test('delete environment', async t => {
   // expected result
-  let result = {
-    type: 'Env',
-    status: 'deleted'
+  let expected = {
+    result: {
+      type: 'Env',
+      status: 'deleted'
+    }
   }
 
   let response = {

@@ -29,9 +29,11 @@ test.afterEach(done => {
 
 test('create environment', async t => {
   // expected result
-  let result = {
-    type: 'Env',
-    status: 'created'
+  let expected = {
+    result: {
+      type: 'Env',
+      status: 'created'
+    }
   }
 
   let response = {
