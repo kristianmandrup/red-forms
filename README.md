@@ -53,11 +53,29 @@ See *Resources* section below for more details on possible solutions for state m
 
 ## Import organisation data
 
+The forms should allow the user to import existing organisation/repo data from popular git hosting providers such as github, gitlab etc.
+
+We recommend using [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) based API wrappers such as:
+
+- [github API](https://www.npmjs.com/package/github-api)
+- [gitlab API](https://github.com/repo-utils/gitlab#promise-way)
+
+For the first iteration/phase, we will only target importing data from a Github account.
+Next stage of development will add support for more git hosting providers.
+
+### API Authentication
+
 This project will leverage the [easy-graphql-auth](https://github.com/tecla5/easy-graphql-auth) project using Auth0 in order to login with Github and similar cloud repositories to collect data:
 
 For now, only the [easy-auth0-lock](https://github.com/tecla5/easy-graphql-auth/tree/master/packages/easy-auth0-lock) should be used, as we will use a MongoDB backend (via Mongoose) at present.
 
-Note: The auth module has not yet been published to npm. Will be done before next week (ie. before 20th of June). Don't be concerned about the Auth part until it is ready!
+Note: The auth modules have not yet been published to npm. Will be done before next week (ie. before 20th of June). Don't be concerned about the Auth part until it is ready!
+
+Using Auth0, it is easy to configure which API permissions will be granted on signin and thus which API calls can be made with that particular Auth (JWT) token granted.
+
+- [Auth0 Github connection](https://auth0.com/docs/connections/social/github)
+- [Auth0 Bitbucket connection](https://auth0.com/docs/connections/social/bitbucket)
+- [Auth0 Gitlab](https://gitlab.com/help/integration/auth0.md)
 
 The Git (entities) import UI should allow user to choose which `organisations`, `teams`, `team members` (users) and `repositories` + `branches` to import
 
