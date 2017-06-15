@@ -2,8 +2,8 @@
   <md-card md-primary md-with-hover>
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">User</div>
-        <div class="md-subhead">Define your user details</div>
+        <div class="md-title">Team</div>
+        <div class="md-subhead">Define your team details</div>
       </md-card-header-text>
     </md-card-header>
 
@@ -11,13 +11,6 @@
       <md-input-container>
         <label>Name</label>
         <md-input id="name" v-model="name"></md-input>
-      </md-input-container>
-
-      <md-input-container>
-        <label for="role">Role</label>
-        <md-select id="role" v-model="role">
-          <md-option v-for="role in roles" :key="role.id" :value="role.value">{{ role.label }}</md-option>
-        </md-select>
       </md-input-container>
 
       <div class="input-container">
@@ -29,7 +22,7 @@
 
       <md-input-container>
         <label>Add project</label>
-        <md-input id="add-branch" v-model="project"></md-input>
+        <md-input id="add-branch" v-model="location"></md-input>
         <md-button @click.native="addProject()" class="md-icon-button md-raised">
           <md-icon class="md-primary">add</md-icon>
         </md-button>
@@ -51,22 +44,11 @@
 
 <script>
 export default {
-  name: 'user',
+  name: 'team',
   data: function () {
     return {
       name: '',
       description: '',
-      project: '',
-      role: '',
-      roles: [{
-        id: 'admin',
-        label: 'administrator',
-        value: 'admin'
-      }, {
-        id: 'dev',
-        label: 'developer',
-        value: 'developer'
-      }],
       form: {
         projects: [
           {
@@ -86,6 +68,11 @@ export default {
     }
   },
   methods: {
+    addProject() {
+      console.log('create new project')
+      this.$router.push({ name: 'project' })
+    },
+
     formData() {
       return {
         name,
@@ -94,7 +81,7 @@ export default {
       } = this
     },
     async save() {
-      await services.$user.createOrUpdate(this.formData())
+      await services.$team.createOrUpdate(this.formData())
     }
   }
 }

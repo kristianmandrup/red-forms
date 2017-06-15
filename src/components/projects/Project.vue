@@ -1,46 +1,37 @@
 <template>
-  <md-card md-primary
-           md-with-hover>
+  <md-card md-primary md-with-hover>
     <md-card-header>
       <md-card-header-text>
         <div class="md-title">Project</div>
         <div class="md-subhead">Define your project details</div>
       </md-card-header-text>
     </md-card-header>
-  
+
     <md-card-content>
       <md-input-container>
         <label>Name</label>
-        <md-input id="name"
-                  v-model="name"></md-input>
+        <md-input id="name" v-model="name"></md-input>
       </md-input-container>
-  
+
       <md-input-container>
         <label>Type</label>
-        <md-input id="type"
-                  v-model="type"></md-input>
+        <md-input id="type" v-model="type"></md-input>
       </md-input-container>
-  
+
       <div class="input-container">
-        <label for="environments"
-               class="inputs">Environments</label>
-        <div id="environments"
-             v-for="env in form.environments">
-          <md-checkbox :id="env.id"
-                       :value="env.value"
-                       v-model="env.checked">{{ env.label }}</md-checkbox>
+        <label for="environments" class="inputs">Environments</label>
+        <div id="environments" v-for="env in form.environments">
+          <md-checkbox :id="env.id" :value="env.value" v-model="env.checked">{{ env.label }}</md-checkbox>
         </div>
       </div>
-  
+
       <md-input-container>
         <label>Description</label>
-        <md-textarea id="description"
-                     v-model="description"></md-textarea>
+        <md-textarea id="description" v-model="description"></md-textarea>
       </md-input-container>
-      <user-invite entity="project"
-                   :id="id" />
+      <user-invite entity="project" :id="id" />
     </md-card-content>
-  
+
     <md-card-actions>
       <md-button @click="save()">Save</md-button>
       <md-button @click="clear()">Clear</md-button>

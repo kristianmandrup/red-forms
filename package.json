@@ -36,7 +36,7 @@
     "rxjs": "^5.4.0",
     "vue-events": "^3.0.1",
     "vue-feathers-services": "^0.1.0",
-    "vue-fetch": "github:kristianmandrup/vue-fetch",
+    "vue-fetch": "^0.4.0",
     "vue-material": "^0.7.1",
     "vue-router": "^2.5.3",
     "vue-rx": "^3.1.1",

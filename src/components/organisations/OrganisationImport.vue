@@ -2,8 +2,8 @@
   <md-card md-primary md-with-hover>
     <md-card-header>
       <md-card-header-text>
-        <div class="md-title">Organisation</div>
-        <div class="md-subhead">Define your organisation details</div>
+        <div class="md-title">Import Organisation</div>
+        <div class="md-subhead">Import your organisation</div>
       </md-card-header-text>
     </md-card-header>
 
@@ -17,12 +17,23 @@
         <label>Description</label>
         <md-textarea id="description" v-model="description"></md-textarea>
       </md-input-container>
-      <user-invite entity="project" :id="id" />
 
+      <md-input-container>
+        <label for="type">From</label>
+        <md-select id="type" v-model="type">
+
+          <md-option v-for="typ in types" :key="typ.id" :selected="typ.selected" :value="typ.value">{{ typ.label }}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Source</label>
+        <md-input id="name" v-model="source"></md-input>
+      </md-input-container>
     </md-card-content>
 
     <md-card-actions>
-      <md-button>Save</md-button>
+      <md-button>Import</md-button>
       <md-button>Clear</md-button>
     </md-card-actions>
   </md-card>
@@ -34,31 +45,42 @@ import { configure } from '../../services'
 const services = configure({
   // host:
 })
-import UserInvite from '../Invite'
 
 export default {
-  name: 'organisation',
-  components: {
-    UserInvite
-  },
+  name: 'organisationImport',
   data: function () {
     return {
       id: '123',
       name: '',
       description: '',
+      source: '',
+      type: '',
+      types: [{
+        value: 'github',
+        label: 'github',
+        selected: true
+      }, {
+        value: 'gitlab',
+        label: 'gitlab'
+      }, {
+        value: 'bitbucket',
+        label: 'bitbucket'
+      }]
     }
   },
   methods: {
     formData() {
       return {
         name,
-        description
+        description,
+        type,
+        source
       } = this
     },
 
     // call service to create organisation
     async save() {
-      await services.$organisation.createOrUpdate(this.formData())
+      await services.$organisation.importFrom(this.formData())
     }
   }
 }

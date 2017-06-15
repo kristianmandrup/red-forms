@@ -44,29 +44,29 @@ import { users } from '../../fixtures/data'
 // import UserInvite from './Invite'
 
 export default {
-  name: 'users',
+  name: 'teams',
   // components: {
   //   UserInvite
   // },
   data: function () {
     return {
-      title: 'Users',
-      subtitle: 'Manage your users',
+      title: 'Teams',
+      subtitle: 'Manage your teams',
       toBeDeleted: [],
       users
     }
   },
   methods: {
     deleteOne(item) {
-      console.log('delete user', { item })
+      console.log('delete team', { item })
     },
     showOne(item) {
-      console.log('show user', { item })
-      this.$router.push({ name: 'user', id: id })
+      console.log('show team', { item })
+      this.$router.push({ name: 'team', id: id })
     },
     createNew() {
       console.log('create new')
-      this.$router.push({ name: 'user' })
+      this.$router.push({ name: 'team' })
     }
   }
 }

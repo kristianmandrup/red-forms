@@ -3,6 +3,10 @@ export {
 }
 from './Organisation'
 export {
+  default as OrganisationImport
+}
+from './OrganisationImport'
+export {
   default as Organisations
 }
 from './Organisations'

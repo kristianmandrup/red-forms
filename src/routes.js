@@ -9,7 +9,10 @@ import {
   Environment,
   Environments,
   Organisation,
+  OrganisationImport,
   Organisations,
+  Team,
+  Teams,
 } from './components'
 
 // import Simple from './components/Simple.vue'
@@ -55,9 +58,24 @@ export default [{
     component: Organisation
   },
   {
+    path: '/organisation/import',
+    name: 'organisation:import',
+    component: OrganisationImport
+  },
+  {
     path: '/organisations',
     name: 'organisations',
     component: Organisations
+  },
+  {
+    path: '/team',
+    name: 'team',
+    component: Team
+  },
+  {
+    path: '/teams',
+    name: 'teams',
+    component: Teams
   },
   {
     path: '/environment',

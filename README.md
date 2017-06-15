@@ -1,14 +1,76 @@
 # red-forms
 
-> My badass Vue project
+This project aims to provide a slick, smooth interface to manage the following organisational entities:
 
-## Vue Material
+- Projects
+- Organisations
+- Teams
+- Users
+- Repositories
+- Environments (dev, test, stage, production, ...)
+- Branches
+
+The app (or set of UI component) should allow an organiation (or team/teams) to manage these entities across multiple types of git hosting providers (github, gitlab, bitbucket, ...). This management UI can then be re-used across multiple different applications, such as [node-red](http://nodered.org/)
+
+## Getting started
+
+Run the following in you terminal/console:
+
+```bash
+yarn install
+yarn dev
+```
+
+open `http://localhost:4000` in a (Chrome) browser.
+
+## Current design
+
+The current simple design consists of a set of forms accessible from a menu.
+The forms can be used to build up the in-memory model of related entities.
+
+Ideally, most of the data is already configured for most organisations in git repos in the cloud and similar.
+
+We need to enable importing this data from existing company (cloud) resources so that they can get up and running more quickly (and with less chance of making errors!)
+
+## Import organisation data
+
+This project will leverage the [easy-graphql-auth](https://github.com/tecla5/easy-graphql-auth) project using Auth0 in order to login with Github and similar cloud repositories to collect data:
+
+For now, only the [easy-auth0-lock](https://github.com/tecla5/easy-graphql-auth/tree/master/packages/easy-auth0-lock) should be used, as we will use a MongoDB backend (via Mongoose) at present.
+
+The Git (entities) import UI should allow user to choose which `organisations`, `teams`, `team members` (users) and `repositories` + `branches` to import
+
+- [Auth0 Github signin with authorization grants](https://auth0.com/docs/connections/social/github)
+- [Github OAuth scopes](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/)
+
+Auth scopes let you specify exactly what type of access you need and grant permission to. Scopes limit access for OAuth tokens. They do not grant any additional permission beyond that which the user already has.
+
+When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorize form.
+
+- [List/Admin Repos](https://developer.github.com/v3/repos/)
+- [List/Admin Organisations](https://developer.github.com/v3/orgs/)
+- [List/Admin teams](https://developer.github.com/v3/orgs/teams/)
+- [Oauth grants API](https://developer.github.com/changes/2016-10-12-oauth-authorizations-grants-api-released/)
+
+Authorization grants needed for this Vue app:
+
+- `read:org`
+- `admin:org`
+- `user`
+- `repo`
+- `notifications` - to let app be notified of changes in real time
+
+## Resources
+
+Here some useful resources that could be used (or serve as inspiration) for this project.
+
+### Vue Material
 
 - [vue material](https://github.com/vuematerial/vue-material)
 - [vue material design framework](https://medium.com/tldr-tech/vue-material-the-vue-material-design-framework-6e6ad857d0c6)
 - [Using Material Design with Vue.js 2](https://medium.com/codingthesmartway-com-blog/using-material-design-with-vue-js-2-a938eac53112)
 
-## Vue Router
+### Vue Router
 
 - [tutorial](https://www.youtube.com/watch?v=X-cs3UfqfYA)
 - [blog post](https://medium.com/@softwarecf/getting-started-with-vue-router-37cd7d783245)
@@ -17,15 +79,15 @@
 Consider instead using [vue-component-router](https://www.npmjs.com/package/vue-component-router) where
 each component can have it's own router!!
 
-## Vuex state manager
+### Vuex state manager
 
 Uses [Vuex](https://vuex.vuejs.org/en/getting-started.html) for state management
 
-## GraphQL
+### GraphQL
 
-[vue-curated-client](https://github.com/vuejs/vue-curated-client) is a full Vue2 GraphQL client/server app
+Check out [vue-curated-client](https://github.com/vuejs/vue-curated-client) is a full Vue2 GraphQL client/server app
 
-## Vue-supply
+### Vue-supply
 
 Realtime publish/subscribe events integrated with [Vuex](https://vuex.vuejs.org/en/)
 
@@ -35,24 +97,18 @@ Will be used for real time service layer, either via [FeathersJS](https://feathe
 
 ### Vue with Feathers services
 
-Alternative to GraphQL
-
-[vue-feathers-client](https://github.com/cklmercer/vue-feathers-client)
+Alternative to GraphQL: [vue-feathers-client](https://github.com/cklmercer/vue-feathers-client)
 
 For real-time data sync:
 
 - [vue-syncers-feathers](https://www.npmjs.com/package/vue-syncers-feathers)
 - [feathers-vuex](https://github.com/feathersjs/feathers-vuex)
 
-## Services
+### Services
 
-Using fetch API via:
+Using fetch API via: [vue-fetch](https://github.com/kristianmandrup/vue-fetch#outside-component)
 
-- [vue-fetch](https://github.com/kristianmandrup/vue-fetch#outside-component)
-
-Could also look at:
-
-- [vue-services](https://www.npmjs.com/package/vue-services)
+Could also use: [vue-services](https://www.npmjs.com/package/vue-services)
 
 See [example](https://medium.com/codingthesmartway-com-blog/vue-js-2-vue-resource-real-world-vue-application-with-external-api-access-c3de83f25c00)
 
