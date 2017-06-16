@@ -7,21 +7,46 @@ This project aims to provide a slick, smooth interface to manage the following o
 - Teams
 - Users
 - Repositories
-- Environments (dev, test, stage, production, ...)
+- Environments (dev, test, stage, prod, ...)
 - Branches
 
 The app (or set of UI component) should allow an organiation (or team/teams) to manage these entities across multiple types of git hosting providers (github, gitlab, bitbucket, ...). This management UI can then be re-used across multiple different applications, such as [node-red](http://nodered.org/)
 
 ## Getting started
 
-Run the following in you terminal/console:
+Fork the repo from github: [red-forms](https://github.com/kristianmandrup/red-forms)
+
+In your terminal/console
+
+Clone the repo from your fork, sth. like:
+
+`git clone https://github.com/YOUR-ACCOUNT/red-forms`
+
+Install/update [yarn](https://yarnpkg.com), the Node.js package/module installer and testing/coverage tools [nyc](https://github.com/istanbuljs/nyc) and [ava](https://github.com/avajs/ava)
 
 ```bash
-yarn install
-yarn dev
+$ npm i -g yarn ava nyc
+```
+
+From the root of the project, install all project dependencies via `yarn`
+
+```bash
+$ yarn install
+```
+
+Run development server
+
+```bash
+$ yarn dev
 ```
 
 open `http://localhost:4000` in a (Chrome) browser.
+
+Try to run `ava` tests with `nyc` coverage report:
+
+```bash
+$ nyc ava
+```
 
 ## Current design
 
@@ -32,6 +57,16 @@ Ideally, most of the data is already configured for most organisations in git re
 
 We need to enable importing this data from existing company (cloud) resources so that they can get up and running more quickly (and with less chance of making errors!)
 
+### Folder structure
+
+- `/db` - Pico DB for managing Project data
+- `/components` - Vue components with forms for managing model entities
+- `/store` - vuex store for centralised state management (similar to Redux)
+- `/fixtures` - fixture data used by forms to display some initial fake data
+- `/services` - Fetch API services for communicating with remote "REST" API
+
+`/fixtures` should be moved to `test` folder.
+
 ### Manage list of entities
 
 Currently the form to manage a list of entities are almost identical. In order to reduce duplication, work has started on a generic `List` form which could replace most (if not all) of these forms, passing `props` as needed to customize `title`, which `$service` is used etc.
@@ -39,9 +74,26 @@ Currently the form to manage a list of entities are almost identical. In order t
 ### In memory data model
 
 The system needs to keep an in-memory representation of the data model.
-We will use the [JayData](http://jaydata.org/) library to manage this entity model.
+
+- [PicoDB](https://www.npmjs.com/package/picodb)
+
+to manage the Project model.
 
 The in-memory model will be kept in sync with the remote model on the server via REST (and later real-time socket) APIs.
+
+### User context
+
+The user needs to signin (via Auth0) in order to manage the models.
+The main context is the `Project` model. When a `User` signs in, the system should load the IDs of the last projects used and by default load the latest project (via REST api)
+
+A project is loaded with:
+
+- names of teams that have access to project
+- names of users with access to project
+- environments of project
+- repo/branch for each environment
+
+The Project model will be stored in the in-memory Pico DB and be linked to Vuex state manager.
 
 ### Services
 
@@ -50,6 +102,14 @@ The folder `/services` contains a [Fetch API](https://developer.mozilla.org/en/d
 Test skeletons for these services can be found in `/test/services`
 
 For now, use an in-memory DB or simply mock the responses to simulate a fully functional backend - it will be integrated later (next iteration)
+
+### Testing and mocking services
+
+Use [nock](https://www.npmjs.com/package/nock) with Ava for HTTP mocking and expectations.
+
+See [Ava endpoint recipe](https://github.com/avajs/ava/blob/master/docs/recipes/endpoint-testing.md)
+
+This recipe would look almost identical using `nock`
 
 ## Models
 

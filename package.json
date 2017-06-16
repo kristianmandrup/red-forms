@@ -29,9 +29,11 @@
   },
   "dependencies": {
     "feathers-vuex": "^0.4.1",
+    "nock": "^9.0.13",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
     "offline-plugin": "^4.8.0",
+    "picodb": "^0.8.5",
     "promise-polyfill": "^6.0.2",
     "rxjs": "^5.4.0",
     "vue-events": "^3.0.1",
