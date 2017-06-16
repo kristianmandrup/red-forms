@@ -44,6 +44,44 @@ Test skeletons for these services can be found in `/test/services`
 
 For now, use an in-memory DB or simply mock the responses to simulate a fully functional backend - it will be integrated later (next iteration)
 
+## Models
+
+- Organisation
+- Team
+- User
+- Project
+- Environment (Env)
+- Repository (Repo)
+- Branch
+
+### Relationships
+
+```bash
+Organisation * - * User
+Organisation 1 - * Team
+User * - * Project
+Project 1 - * Environment
+Environment 1 - 1 Branch
+Repo 1 - * Branch
+```
+
+### Relationships described
+
+- An organisation can have many users and teams.
+- A team can have many users
+- A user can be a member of multiple teams
+- A user (`User`) can have access to one or more projects.
+- Each `project` (`Project`) can be owned by one `user`.
+- A project can have many users with access to that project (roles w permissions)
+- A `project` can have multiple `environments` (`Env`), such as:
+
+- `dev`
+- `test`
+- `stage`
+- `prod`
+
+- An `environment` is linked to a specific branch (`Branch`) on a specific `repo` (`Repo`).
+
 ## State
 
 Currently the application state is managed by each component.
