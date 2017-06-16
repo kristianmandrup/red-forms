@@ -36,6 +36,13 @@ We need to enable importing this data from existing company (cloud) resources so
 
 Currently the form to manage a list of entities are almost identical. In order to reduce duplication, work has started on a generic `List` form which could replace most (if not all) of these forms, passing `props` as needed to customize `title`, which `$service` is used etc.
 
+### In memory data model
+
+The system needs to keep an in-memory representation of the data model.
+We will use the [JayData](http://jaydata.org/) library to manage this entity model.
+
+The in-memory model will be kept in sync with the remote model on the server via REST (and later real-time socket) APIs.
+
 ### Services
 
 The folder `/services` contains a [Fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API) to call a backend API that it turn communicates with a data store such as Mongo DB.
