@@ -75,11 +75,9 @@ Currently the form to manage a list of entities are almost identical. In order t
 
 The system needs to keep an in-memory representation of the data model.
 
-- [PicoDB](https://www.npmjs.com/package/picodb)
+We can use [feathers-localstorage](https://github.com/feathersjs/feathers-localstorage) to keep a local database (cache) of entities.
 
-to manage the Project model.
-
-The in-memory model will be kept in sync with the remote model on the server via REST (and later real-time socket) APIs.
+The cached model will be kept in sync with the remote model on the server via REST (and later real-time socket) APIs (see `Todo.md` document)
 
 ### User context
 
@@ -227,17 +225,11 @@ each component can have it's own router!!
 
 Uses [Vuex](https://vuex.vuejs.org/en/getting-started.html) for state management
 
-### GraphQL
-
-Check out [vue-curated-client](https://github.com/vuejs/vue-curated-client) is a full Vue2 GraphQL client/server app
-
-### Vue-supply
+### Vuex real-time sync
 
 Realtime publish/subscribe events integrated with [Vuex](https://vuex.vuejs.org/en/)
 
-[vue-supply](https://github.com/Akryum/vue-supply)
-
-Will be used for real time service layer, either via [FeathersJS](https://feathersjs.com) or [GraphQL](http://graphql.org/) (via [GraphCool](https://www.graph.cool) with [Server Side Subscriptions](https://www.graph.cool/docs/reference/functions/server-side-subscriptions-ahlohd8ohn/))
+We can use either [vue-supply](https://github.com/Akryum/vue-supply) or (https://github.com/feathersjs/feathers-vuex) for syncing with [FeathersJS](https://feathersjs.com) or via [feathers-vuex]
 
 ### Vue with Feathers services
 
