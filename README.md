@@ -229,7 +229,7 @@ Uses [Vuex](https://vuex.vuejs.org/en/getting-started.html) for state management
 
 Realtime publish/subscribe events integrated with [Vuex](https://vuex.vuejs.org/en/)
 
-We can use either [vue-supply](https://github.com/Akryum/vue-supply) or (https://github.com/feathersjs/feathers-vuex) for syncing with [FeathersJS](https://feathersjs.com) or via [feathers-vuex]
+We can use either [vue-supply](https://github.com/Akryum/vue-supply) or [feathers-vuex](https://github.com/feathersjs/feathers-vuex) for syncing with [FeathersJS](https://feathersjs.com)
 
 ### Vue with Feathers services
 
@@ -242,11 +242,11 @@ For real-time data sync:
 
 ### Services
 
-Using fetch API via: [vue-fetch](https://github.com/kristianmandrup/vue-fetch#outside-component)
+Currently using fetch API via: [vue-fetch](https://github.com/kristianmandrup/vue-fetch#outside-component)
 
-Could also use: [vue-services](https://www.npmjs.com/package/vue-services)
+We should (perhaps) instead just use standard feathers-client REST api and sockets. I guess, fetch is just a more modern API to perform REST/AJAX HTTP requests.
 
-See [example](https://medium.com/codingthesmartway-com-blog/vue-js-2-vue-resource-real-world-vue-application-with-external-api-access-c3de83f25c00)
+Could also considier using: [vue-services](https://www.npmjs.com/package/vue-services)
 
 ## Testing
 
