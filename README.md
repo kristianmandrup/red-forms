@@ -246,7 +246,15 @@ Currently using fetch API via: [vue-fetch](https://github.com/kristianmandrup/vu
 
 We should (perhaps) instead just use standard feathers-client REST api and sockets. I guess, fetch is just a more modern API to perform REST/AJAX HTTP requests.
 
-Could also considier using: [vue-services](https://www.npmjs.com/package/vue-services)
+```js
+import feathers from 'feathers/client';
+import rest from 'feathers-rest/client'
+
+const app = feathers()
+  .configure(rest('http://baseUrl').fetch(window.fetch.bind(window)))`
+```
+
+We could also consider using: [vue-services](https://www.npmjs.com/package/vue-services)
 
 ## Testing
 
